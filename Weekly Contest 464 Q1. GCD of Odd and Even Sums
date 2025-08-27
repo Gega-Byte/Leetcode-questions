@@ -1,0 +1,22 @@
+class Solution {
+    public:int gcdOfOddEvenSums(int n) {
+        int sumOdd=0;
+        int sumEven=0;
+        for(int count=1; count<=2*n; count++){
+            if(count%2==0){
+               sumEven=sumEven+count; 
+            }else{
+             sumOdd=sumOdd+count;   
+            }   
+        }
+        return gcd(sumOdd, sumEven);
+    }
+    private:int gcd(int a, int b){
+        int res=min(a,b);
+        while(res>1){
+            if(a%res==0 && b%res==0)
+                break;
+            res--;
+        }return res;
+    }
+};
